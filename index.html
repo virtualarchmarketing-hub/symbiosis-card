@@ -3,338 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Symbiosis Lab — Евгений Орлов & Лидия Любимая</title>
-<meta name="description" content="Symbiosis Lab — архитектура симбиоза человека и ИИ. Авторские методологии и AI-продукты. Контакты Евгения Орлова и Лидии Любимой.">
+<title>Евгений Орлов — Symbiosis Lab</title>
+<meta name="description" content="Евгений Орлов — основатель Symbiosis Lab, архитектор AI-систем. Авторские методологии и AI-продукты. Архитектура симбиоза человека и ИИ.">
 <meta name="theme-color" content="#F5F2ED">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Symbiosis Lab — Евгений Орлов & Лидия Любимая">
-<meta property="og:description" content="Архитектура симбиоза человека и ИИ. Авторские методологии и AI-продукты для бизнеса.">
-
-<!-- Favicon: bronze monogram -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B8855D'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-style='italic' font-size='20' font-weight='700' fill='%23F5F2ED' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
-
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Евгений Орлов — Symbiosis Lab">
+<meta property="og:description" content="Архитектор AI-систем. Архитектура симбиоза человека и ИИ.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B8855D'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-style='italic' font-size='18' font-weight='700' fill='%23F5F2ED' text-anchor='middle'%3EEO%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&family=Source+Serif+4:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-  :root {
-    /* ═══ Symbiosis Design Tokens (source of truth: Alfa Agent / Tessera) ═══ */
-    --accent-bronze: #B8855D;
-    --accent-bronze-deep: #8E6440;
-    --accent-bronze-darker: #6F4D2F;
-    --accent-bronze-subtle: #EDD9C2;
-
-    --surface-canvas: #F5F2ED;
-    --surface-elevated: #FFFFFF;
-    --surface-sunken: #EDE9E2;
-
-    --text-primary: #1F1B16;
-    --text-secondary: #5C544A;
-    --text-tertiary: #8A7F70;
-    --text-inverse: #F5F2ED;
-
-    --brand-warm: #D4A574;
-    --brand-warm-subtle: #F4E8D4;
-
-    --border-subtle: #E5DFD5;
-    --border-default: #D4CCBE;
-
-    --shadow-sm: 0 2px 4px rgba(31, 27, 22, 0.06);
-    --shadow-md: 0 4px 12px rgba(31, 27, 22, 0.08);
-    --shadow-lg: 0 12px 32px rgba(31, 27, 22, 0.12);
-
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
-    --radius-2xl: 24px;
-
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
-    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
-    --font-reading: 'Source Serif 4', 'Charter', Georgia, serif;
+  :root{
+    --accent-bronze:#B8855D;--accent-bronze-deep:#8E6440;--accent-bronze-darker:#6F4D2F;--accent-bronze-subtle:#EDD9C2;
+    --surface-canvas:#F5F2ED;--surface-elevated:#FFFFFF;--surface-sunken:#EDE9E2;
+    --text-primary:#1F1B16;--text-secondary:#5C544A;--text-tertiary:#8A7F70;
+    --brand-warm:#D4A574;--brand-warm-subtle:#F4E8D4;
+    --border-subtle:#E5DFD5;--border-default:#D4CCBE;
+    --shadow-sm:0 2px 4px rgba(31,27,22,.06);--shadow-md:0 4px 12px rgba(31,27,22,.08);--shadow-lg:0 12px 32px rgba(31,27,22,.12);
+    --radius-md:8px;--radius-lg:12px;--radius-xl:16px;
+    --font-display:'Playfair Display',Georgia,serif;--font-sans:'Inter',-apple-system,system-ui,sans-serif;
+    --font-mono:'JetBrains Mono','SF Mono',Consolas,monospace;--font-reading:'Source Serif 4','Charter',Georgia,serif;
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { -webkit-text-size-adjust: 100%; }
-
-  body {
-    background:
-      radial-gradient(1200px 600px at 50% -10%, #FBF8F3 0%, var(--surface-canvas) 60%);
-    color: var(--text-primary);
-    font-family: var(--font-sans);
-    font-size: 15px;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'cv11','ss01';
-    min-height: 100vh;
-    padding: 28px 18px calc(40px + env(safe-area-inset-bottom));
-    display: flex;
-    justify-content: center;
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:radial-gradient(1200px 600px at 50% -10%,#FBF8F3 0%,var(--surface-canvas) 60%);
+    color:var(--text-primary);font-family:var(--font-sans);font-size:15px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-feature-settings:'cv11','ss01';
+    min-height:100vh;padding:32px 18px calc(40px + env(safe-area-inset-bottom));display:flex;justify-content:center;
   }
-
-  .card-wrap { width: 100%; max-width: 460px; }
-
-  /* ─── Header ─── */
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 7px;
-    font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--accent-bronze-deep);
-    background: var(--brand-warm-subtle);
-    border: 1px solid var(--accent-bronze-subtle);
-    padding: 5px 12px; border-radius: 999px;
-    margin-bottom: 22px;
+  .wrap{width:100%;max-width:420px;text-align:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--accent-bronze-deep);
+    background:var(--brand-warm-subtle);border:1px solid var(--accent-bronze-subtle);
+    padding:5px 12px;border-radius:999px;margin-bottom:26px;
   }
-  .eyebrow .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent-bronze); }
-
-  .wordmark {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 600;
-    font-size: 34px;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    color: var(--text-primary);
+  .eyebrow .dot{width:6px;height:6px;border-radius:999px;background:var(--accent-bronze)}
+  .avatar{
+    width:116px;height:116px;margin:0 auto 18px;border-radius:999px;
+    background:linear-gradient(135deg,var(--brand-warm),var(--accent-bronze));color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-style:italic;font-weight:700;font-size:42px;letter-spacing:.02em;
+    box-shadow:var(--shadow-md);overflow:hidden;border:3px solid var(--surface-elevated);
   }
-  .wordmark .lab { color: var(--accent-bronze-deep); }
-
-  .tagline {
-    margin-top: 10px;
-    font-family: var(--font-reading);
-    font-size: 17px;
-    font-style: italic;
-    color: var(--text-secondary);
-    line-height: 1.4;
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  .name{font-family:var(--font-display);font-weight:600;font-size:30px;line-height:1.1;color:var(--text-primary)}
+  .role{margin-top:6px;font-size:14px;font-weight:500;color:var(--accent-bronze-deep)}
+  .brandline{margin-top:3px;font-family:var(--font-mono);font-size:12px;color:var(--text-tertiary);letter-spacing:.02em}
+  .tagline{margin-top:16px;font-family:var(--font-reading);font-style:italic;font-size:17px;color:var(--text-secondary);line-height:1.45}
+  .desc{margin-top:12px;font-size:14px;color:var(--text-secondary);line-height:1.6}
+  .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:18px}
+  .chip{font-family:var(--font-mono);font-size:11px;color:var(--text-secondary);background:var(--surface-sunken);border-radius:999px;padding:4px 11px}
+  .actions{margin-top:24px;display:flex;flex-direction:column;gap:9px}
+  .row{display:flex;gap:9px}.row>.btn{flex:1}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:var(--radius-md);
+    font-family:var(--font-sans);font-size:15px;font-weight:500;border:1px solid transparent;text-decoration:none;
+    transition:background .12s,color .12s,border-color .12s,transform .08s;-webkit-tap-highlight-color:transparent;min-height:48px;
   }
-
-  .intro {
-    margin-top: 14px;
-    font-size: 14.5px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    max-width: 40ch;
-  }
-
-  /* ─── Section rule ─── */
-  .rule {
-    display: flex; align-items: center; gap: 12px;
-    margin: 28px 0 16px;
-    font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--text-tertiary);
-  }
-  .rule::after { content: ''; flex: 1; height: 1px; background: var(--border-subtle); }
-
-  /* ─── Person card ─── */
-  .person {
-    background: var(--surface-elevated);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-sm);
-    padding: 20px 18px 18px;
-    margin-bottom: 16px;
-  }
-
-  .person-head { display: flex; align-items: center; gap: 14px; }
-
-  .avatar {
-    width: 56px; height: 56px; flex-shrink: 0;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--brand-warm), var(--accent-bronze));
-    color: #fff;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-style: italic; font-weight: 700;
-    font-size: 21px; letter-spacing: 0.02em;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .person-name {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 21px;
-    line-height: 1.15;
-    color: var(--text-primary);
-  }
-  .person-role {
-    margin-top: 3px;
-    font-size: 13px;
-    color: var(--accent-bronze-deep);
-    font-weight: 500;
-  }
-
-  .person-desc {
-    margin-top: 14px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.55;
-  }
-  .person-desc .quote {
-    font-family: var(--font-reading);
-    font-style: italic;
-    color: var(--text-primary);
-  }
-
-  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-  .chip {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-secondary);
-    background: var(--surface-sunken);
-    border-radius: 999px;
-    padding: 3px 10px;
-  }
-
-  /* ─── Buttons ─── */
-  .actions { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
-  .row { display: flex; gap: 8px; }
-  .row > .btn { flex: 1; }
-
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 12px 16px;
-    border-radius: var(--radius-md);
-    font-family: var(--font-sans);
-    font-size: 14.5px; font-weight: 500;
-    border: 1px solid transparent;
-    text-decoration: none;
-    transition: background 120ms, color 120ms, border-color 120ms, transform 80ms;
-    -webkit-tap-highlight-color: transparent;
-    min-height: 46px;
-  }
-  .btn:active { transform: translateY(1px); }
-  .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
-
-  .btn-primary { background: var(--accent-bronze-deep); color: #fff; }
-  .btn-primary:hover { background: var(--accent-bronze-darker); }
-
-  .btn-secondary {
-    background: var(--surface-elevated);
-    border-color: var(--border-default);
-    color: var(--text-primary);
-    font-size: 13.5px;
-  }
-  .btn-secondary:hover { border-color: var(--text-tertiary); }
-
-  .btn-ghost { background: transparent; color: var(--text-secondary); font-size: 13.5px; }
-  .btn-ghost:hover { background: var(--surface-sunken); color: var(--text-primary); }
-
-  /* ─── Footer ─── */
-  .foot {
-    margin-top: 26px;
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-tertiary);
-    line-height: 1.6;
-  }
-  .foot .sep { opacity: 0.5; margin: 0 6px; }
-  .foot a { color: var(--accent-bronze-deep); text-decoration: none; }
-
-  @media (max-width: 360px) {
-    .wordmark { font-size: 30px; }
-    .row { flex-direction: column; }
-  }
+  .btn:active{transform:translateY(1px)}.btn svg{width:18px;height:18px;flex-shrink:0}
+  .btn-primary{background:var(--accent-bronze-deep);color:#fff}.btn-primary:hover{background:var(--accent-bronze-darker)}
+  .btn-secondary{background:var(--surface-elevated);border-color:var(--border-default);color:var(--text-primary);font-size:14px}
+  .btn-secondary:hover{border-color:var(--text-tertiary)}
+  .btn-ghost{background:transparent;color:var(--text-secondary);font-size:14px}
+  .btn-ghost:hover{background:var(--surface-sunken);color:var(--text-primary)}
+  .foot{margin-top:26px;font-size:12px;color:var(--text-tertiary);line-height:1.6}
+  .foot a{color:var(--accent-bronze-deep);text-decoration:none}
+  @media (max-width:360px){.name{font-size:26px}.row{flex-direction:column}}
 </style>
 </head>
 <body>
-  <main class="card-wrap">
-
+  <main class="wrap">
     <span class="eyebrow"><span class="dot"></span>Startup Village · 2026</span>
 
-    <h1 class="wordmark">Symbiosis&nbsp;<span class="lab">Lab</span></h1>
-    <p class="tagline">Архитектура симбиоза человека и ИИ</p>
-    <p class="intro">Авторские методологии и AI-продукты, где искусственный интеллект усиливает человека, а не заменяет. Евгений проектирует методологии — Лидия применяет их в найме.</p>
+    <div class="avatar">EO</div>
+    <h1 class="name">Евгений Орлов</h1>
+    <div class="role">Основатель · Архитектор AI-систем</div>
+    <div class="brandline">Symbiosis Lab</div>
 
-    <div class="rule">Контакты</div>
+    <p class="tagline">«Архитектура симбиоза человека и ИИ»</p>
+    <p class="desc">Проектирую AI-системы, которые усиливают человека, а не заменяют. 6 авторских методологий, 20+ AI-продуктов.</p>
 
-    <!-- ─── Евгений Орлов ─── -->
-    <section class="person">
-      <div class="person-head">
-        <div class="avatar">EO</div>
-        <div>
-          <div class="person-name">Евгений Орлов</div>
-          <div class="person-role">Основатель · Архитектор AI-систем</div>
-        </div>
-      </div>
-      <p class="person-desc">6 авторских методологий и 20+ AI-продуктов. <span class="quote">«ИИ как экзоскелет для мышления».</span></p>
-      <div class="chips">
-        <span class="chip">SPE</span>
-        <span class="chip">INoT</span>
-        <span class="chip">ADI</span>
-        <span class="chip">HRP</span>
-        <span class="chip">CAPE</span>
-        <span class="chip">ROSI</span>
-      </div>
-      <div class="actions">
-        <a class="btn btn-primary" href="https://t.me/Orlovbizness" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.78a1.32 1.32 0 0 0-1.78-1.27L2.7 10.3c-.92.36-.9 1.66.02 1.99l4.4 1.55 1.7 5.3a.9.9 0 0 0 1.5.38l2.46-2.38 4.6 3.38c.62.46 1.5.13 1.68-.62l2.88-15.5Zm-4.3 2.2-8.13 7.18-.32 3.46-.02-.07-1.3-4.05 9.79-6.4Z"/></svg>
-          Написать в Telegram
+    <div class="chips">
+      <span class="chip">SPE</span><span class="chip">INoT</span><span class="chip">ADI</span>
+      <span class="chip">HRP</span><span class="chip">CAPE</span><span class="chip">ROSI</span>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://t.me/Orlovbizness" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.78a1.32 1.32 0 0 0-1.78-1.27L2.7 10.3c-.92.36-.9 1.66.02 1.99l4.4 1.55 1.7 5.3a.9.9 0 0 0 1.5.38l2.46-2.38 4.6 3.38c.62.46 1.5.13 1.68-.62l2.88-15.5Zm-4.3 2.2-8.13 7.18-.32 3.46-.02-.07-1.3-4.05 9.79-6.4Z"/></svg>
+        Написать в Telegram
+      </a>
+      <div class="row">
+        <a class="btn btn-secondary" href="https://orlovevgeny.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Сайт
         </a>
-        <div class="row">
-          <a class="btn btn-secondary" href="https://orlovevgeny.com" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            Сайт
-          </a>
-          <a class="btn btn-secondary" href="tel:+79106059496">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-            Позвонить
-          </a>
-        </div>
-        <a class="btn btn-ghost" href="evgeny-orlov.vcf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Сохранить в контакты
+        <a class="btn btn-secondary" href="tel:+79106059496">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Позвонить
         </a>
       </div>
-    </section>
+      <a class="btn btn-ghost" href="evgeny-orlov.vcf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Сохранить в контакты
+      </a>
+    </div>
 
-    <!-- ─── Лидия Любимая ─── -->
-    <section class="person">
-      <div class="person-head">
-        <div class="avatar">ЛЛ</div>
-        <div>
-          <div class="person-name">Лидия Любимая</div>
-          <div class="person-role">Партнёр · Основатель HantiLab</div>
-        </div>
-      </div>
-      <p class="person-desc"><span class="quote">«Проверяем до найма. Гарантируем после».</span> Найм руководителей и CAIO по протоколу&nbsp;HRP.</p>
-      <div class="chips">
-        <span class="chip">Проверенный найм</span>
-        <span class="chip">Протокол HRP</span>
-        <span class="chip">CAIO</span>
-      </div>
-      <div class="actions">
-        <a class="btn btn-primary" href="https://t.me/LidiaKLI" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.78a1.32 1.32 0 0 0-1.78-1.27L2.7 10.3c-.92.36-.9 1.66.02 1.99l4.4 1.55 1.7 5.3a.9.9 0 0 0 1.5.38l2.46-2.38 4.6 3.38c.62.46 1.5.13 1.68-.62l2.88-15.5Zm-4.3 2.2-8.13 7.18-.32 3.46-.02-.07-1.3-4.05 9.79-6.4Z"/></svg>
-          Написать в Telegram
-        </a>
-        <div class="row">
-          <a class="btn btn-secondary" href="https://hantilab.com" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            Сайт
-          </a>
-          <a class="btn btn-secondary" href="tel:+79384024999">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-            Позвонить
-          </a>
-        </div>
-        <a class="btn btn-ghost" href="lidia-lyubimaya.vcf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Сохранить в контакты
-        </a>
-      </div>
-    </section>
-
-    <p class="foot">
-      Symbiosis Lab <span class="sep">·</span> 2026<br>
-      <a href="https://orlovevgeny.com" target="_blank" rel="noopener">orlovevgeny.com</a>
-      <span class="sep">·</span>
-      <a href="https://hantilab.com" target="_blank" rel="noopener">hantilab.com</a>
-    </p>
-
+    <p class="foot"><a href="https://orlovevgeny.com" target="_blank" rel="noopener">orlovevgeny.com</a> <span style="opacity:.5">·</span> Symbiosis Lab · 2026</p>
   </main>
 </body>
 </html>
